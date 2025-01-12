@@ -90,7 +90,7 @@ double MainWindow::FindMin(std::function<double(const std::vector<double>&)> f, 
 
 // Функция для сохранения результатов в файл
 void MainWindow::saveResultsToFile(const QString& fileName, const std::vector<double>& result, int iterations) {
-    QString path = "  " + fileName; 
+    QString path = "  " + fileName; // Введите путь к файлу
     QFile file(path);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
@@ -105,7 +105,7 @@ void MainWindow::saveResultsToFile(const QString& fileName, const std::vector<do
 
 // Функция создания файла
 void MainWindow::createFile(const QString &fileName) {
-    QString directory = "  ";
+    QString directory = "  "; // Введите путь к файлу
     QDir dir(directory);
 
     // Создаем папку, если она не существует
