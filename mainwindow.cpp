@@ -90,7 +90,7 @@ double MainWindow::FindMin(std::function<double(const std::vector<double>&)> f, 
 
 // Функция для сохранения результатов в файл
 void MainWindow::saveResultsToFile(const QString& fileName, const std::vector<double>& result, int iterations) {
-    QString path = "D:/CursachProga/Try_1/" + fileName; // Путь к файлу
+    QString path = "  " + fileName; 
     QFile file(path);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
@@ -105,7 +105,7 @@ void MainWindow::saveResultsToFile(const QString& fileName, const std::vector<do
 
 // Функция создания файла
 void MainWindow::createFile(const QString &fileName) {
-    QString directory = "D:\\CursachProga\\Try_1";
+    QString directory = "  ";
     QDir dir(directory);
 
     // Создаем папку, если она не существует
@@ -116,7 +116,7 @@ void MainWindow::createFile(const QString &fileName) {
     QFile file(dir.filePath(fileName));
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
-        out << "Файл создан успешно!\n";  // Можно записать любую информацию
+        out << "Файл создан успешно!\n"; 
         file.close();
         qDebug() << "Файл создан: " << dir.filePath(fileName);
     } else {
@@ -197,8 +197,8 @@ void MainWindow::visualizeGraph(QtCharts::QLineSeries *series, double min_x, dou
     chart->setAxisY(yAxis, series);
 
     // Установка названий осей
-    xAxis->setTitleText("Ось X");  // Название оси X
-    yAxis->setTitleText("Ось Y");  // Название оси Y
+    xAxis->setTitleText("Ось X");  
+    yAxis->setTitleText("Ось Y"); 
 
     // Настройка отображения графика
     QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
@@ -217,7 +217,7 @@ void MainWindow::visualizeGraph(QtCharts::QLineSeries *series, double min_x, dou
 void MainWindow::on_startButton_clicked() {
     double tolerance = ui->toleranceInput->text().toDouble();
     double lambdaTolerance = ui->lambdaToleranceInput->text().toDouble();
-    double funcNumber = ui->funcNumber->text().toDouble(); // Получаем номер функции
+    double funcNumber = ui->funcNumber->text().toDouble(); 
     QString fileName = ui->fileNameInput->text().isEmpty() ? "output.txt" : ui->fileNameInput->text();
 
     if (ui->x0Input->text().isEmpty() || ui->y0Input_2->text().isEmpty()) {
